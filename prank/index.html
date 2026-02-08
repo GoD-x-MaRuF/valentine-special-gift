@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Valentine's Reward ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="heart-container" id="heart-container"></div>
+
+    <div class="main-card neon-border">
+        <div class="progress-bar-container">
+            <div class="progress-fill" id="pb"></div>
+        </div>
+
+        <!-- Step 1 -->
+        <div id="step-1" class="step active">
+            <div class="header-icon">💝</div>
+            <h1>Friendship Reward</h1>
+            <p>I've created a special Valentine surprise. Enter your name to check eligibility.</p>
+            <div class="input-group">
+                <input type="text" id="userName" class="animated-input" placeholder="Your Name..." required>
+            </div>
+            <button class="primary-btn" onclick="nextStep(2, 20)">Continue</button>
+        </div>
+
+        <!-- Questions -->
+        <div id="step-2" class="step">
+            <span class="step-label">1/4</span>
+            <h2>Who is more likely to get in trouble?</h2>
+            <div class="button-stack">
+                <button class="opt-btn" onclick="nextStep(3, 40)">Definitely Me</button>
+                <button class="opt-btn" onclick="nextStep(3, 40)">Of course You</button>
+            </div>
+        </div>
+
+        <div id="step-3" class="step">
+            <span class="step-label">2/4</span>
+            <h2>Will we be Best Friends Forever?</h2>
+            <div class="button-stack">
+                <button class="opt-btn" onclick="nextStep(4, 60)">Yes, Always! ❤️</button>
+            </div>
+        </div>
+
+        <div id="step-4" class="step">
+            <span class="step-label">3/4</span>
+            <h2>Who is the better looking one? 😎</h2>
+            <div class="button-stack">
+                <button class="opt-btn" onclick="nextStep(5, 80)">It's Me!</button>
+                <button class="opt-btn" onclick="nextStep(5, 80)">Obviously You!</button>
+            </div>
+        </div>
+
+        <div id="step-5" class="step">
+            <span class="step-label">4/4</span>
+            <h2>Share wife with me?</h2>
+            <div class="button-stack">
+                <button class="opt-btn" onclick="nextStep(6, 95)">YES! 😂</button>
+                <button class="opt-btn" onclick="nextStep(6, 95)">ABSOLUTELY!</button>
+            </div>
+        </div>
+
+        <!-- Step 6: Loading -->
+        <div id="step-6" class="step">
+            <h1>Generating Gift...</h1>
+            <div class="spinner"></div>
+            <p>Syncing premium reward...</p>
+        </div>
+
+        <!-- Step 7: Claim -->
+        <div id="step-7" class="step">
+            <h1 class="unlock-title">🎉 UNLOCKED 🎉</h1>
+            <div class="gift-voucher-box">
+                <p class="voucher-text">EXCLUSIVE REWARD</p>
+                <p class="voucher-value">✨ SPECIAL SURPRISE ✨</p>
+                <div class="divider"></div>
+                <p class="tap-instruction">TAP HEART TO OPEN</p>
+                <div class="giant-heart" onclick="triggerPrank()">❤️</div>
+            </div>
+        </div>
+
+        <!-- PRANK SCREEN -->
+        <div id="prank-reveal" class="prank-screen">
+            <div class="realistic-hand-wrapper">
+                <svg viewBox="0 0 200 200" class="svg-hand">
+                    <path class="hand-shape" d="M120,180 C150,180 160,160 160,130 L160,100 C160,90 150,85 145,85 C140,85 130,90 130,100 L130,110 L130,70 C130,60 120,55 115,55 C110,55 100,60 100,70 L100,110 L100,30 C100,20 90,15 85,15 C80,15 70,20 70,30 L70,110 L70,70 C70,60 60,55 55,55 C50,55 40,60 40,70 L40,110 L40,90 C40,80 30,75 25,75 C20,75 10,80 10,90 L10,130 C10,160 20,180 50,180 Z" fill="#ff2e63" stroke="#fff" stroke-width="2"/>
+                </svg>
+            </div>
+
+            <h1 class="shout-text">Vag Bakchod!</h1>
+            <p id="burn-message" class="burn-description"></p>
+            
+            <button class="retry-btn crying-anim" onclick="location.reload()">you are crying 😂</button>
+
+            <!-- NEON SIGNATURE -->
+            <div class="dev-signature">ℂℝ𝔼𝔸𝕋𝔼 𝔹𝕐➫𝔻𝔼𝕍-𝕄𝔸ℝ𝕌𝔽</div>
+
+            <!-- Fixed Share Menu (WA, IG, FB) -->
+            <div class="radial-share-wrapper">
+                <div class="share-menu" id="shareMenu">
+                    <div class="menu-toggle" onclick="toggleShare()">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <li style="--i:0;--clr:#25D366;"><a href="#" onclick="share('whatsapp')"><i class="fab fa-whatsapp"></i></a></li>
+                    <li style="--i:1;--clr:#E4405F;"><a href="#" onclick="share('instagram')"><i class="fab fa-instagram"></i></a></li>
+                    <li style="--i:2;--clr:#1877F2;"><a href="#" onclick="share('facebook')"><i class="fab fa-facebook-f"></i></a></li>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; -webkit-tap-highlight-color: transparent; }
+body { background: #fff5f7; min-height: 100vh; display: flex; justify-content: center; align-items: center; overflow: hidden; padding: 15px; }
+
+.main-card { background: white; padding: 25px; border-radius: 25px; width: 100%; max-width: 380px; text-align: center; z-index: 10; position: relative; }
+.neon-border { border: 3px solid #ff4d6d; animation: neonGlow 1.5s infinite alternate; }
+@keyframes neonGlow { 
+    from { box-shadow: 0 0 10px #ff4d6d; } 
+    to { box-shadow: 0 0 25px #ff4d6d, 0 0 5px #ff4d6d inset; } 
+}
+
+.animated-input {
+    width: 100%; padding: 15px; border: 2px solid #ffccd5; border-radius: 12px; margin: 15px 0; outline: none; font-size: 16px;
+    animation: inputPulse 2s infinite;
+}
+@keyframes inputPulse {
+    0% { border-color: #ffccd5; box-shadow: 0 0 0px transparent; }
+    50% { border-color: #ff4d6d; box-shadow: 0 0 15px rgba(255, 77, 109, 0.2); }
+    100% { border-color: #ffccd5; box-shadow: 0 0 0px transparent; }
+}
+
+.prank-screen { position: fixed; inset: 0; background: #000; display: none; flex-direction: column; justify-content: center; align-items: center; z-index: 1000; padding: 20px; }
+.realistic-hand-wrapper { width: 180px; height: 180px; animation: slam 0.4s forwards, shake 0.1s infinite; }
+@keyframes slam { 0% { transform: scale(5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+@keyframes shake { 0%, 100% { transform: translate(1px, 1px); } 50% { transform: translate(-1px, -1px); } }
+
+.shout-text { font-size: 45px; font-weight: 900; color: #ff2e63; text-align: center; }
+.burn-description { border: 2px solid #ff2e63; padding: 12px; margin: 15px 0; color: white; text-align: center; font-weight: bold; }
+
+.dev-signature { margin-top: 25px; font-size: 1.4rem; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 3px; animation: neonSign 1.5s infinite alternate; }
+@keyframes neonSign { from { text-shadow: 0 0 5px #fff, 0 0 10px #ff4d6d, 0 0 20px #ff4d6d; } to { text-shadow: 0 0 10px #fff, 0 0 20px #ff4d6d, 0 0 40px #ff4d6d; } }
+
+/* RADIAL SHARE MENU (WA, IG, FB) */
+.radial-share-wrapper { position: absolute; bottom: 30px; right: 30px; width: 60px; height: 60px; z-index: 2000; }
+.share-menu { position: relative; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+.menu-toggle { width: 55px; height: 55px; background: #ff2e63; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; cursor: pointer; z-index: 10; font-size: 1.2rem; transition: 0.5s; box-shadow: 0 0 15px #ff2e63; }
+.share-menu.active .menu-toggle { transform: rotate(315deg); background: #333; }
+.share-menu li { position: absolute; list-style: none; transition: 0.5s; opacity: 0; transform: scale(0); pointer-events: none; }
+.share-menu.active li { opacity: 1; transform: scale(1); pointer-events: auto; }
+
+/* 3 Icons Spreading Left and Up */
+.share-menu.active li:nth-child(2) { transform: translate(-75px, 0px); }    /* WhatsApp - Left */
+.share-menu.active li:nth-child(3) { transform: translate(-55px, -55px); } /* Instagram - Diagonal */
+.share-menu.active li:nth-child(4) { transform: translate(0px, -75px); }   /* Facebook - Top */
+
+.share-menu li a { width: 45px; height: 45px; background: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: var(--clr); font-size: 1.2rem; box-shadow: 0 5px 10px rgba(0,0,0,0.3); }
+
+/* Other Styles */
+.step { display: none; }
+.step.active { display: block; }
+.progress-bar-container { width: 100%; height: 6px; background: #ffe5ec; border-radius: 10px; margin-bottom: 25px; }
+.progress-fill { width: 0%; height: 100%; background: #ff4d6d; transition: 0.5s; border-radius: 10px; }
+.primary-btn, .opt-btn { background: #ff4d6d; color: white; border: none; padding: 14px; border-radius: 50px; cursor: pointer; width: 100%; font-weight: 700; margin-top: 10px; }
+.giant-heart { font-size: 70px; cursor: pointer; animation: heartbeat 1s infinite; display: inline-block; }
+@keyframes heartbeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+.crying-anim { animation: wiggle 1s infinite; margin-top: 10px; background: transparent; color: #555; border: 1px solid #333; padding: 8px 15px; border-radius: 5px; cursor: pointer; }
+@keyframes wiggle { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-5deg); } 75% { transform: rotate(5deg); } }
+.heart-container { position: fixed; inset: 0; pointer-events: none; z-index: 1; }
+.floating-heart { position: absolute; color: #ff4d6d; animation: floatUp linear forwards; }
+@keyframes floatUp { to { transform: translateY(-110vh); opacity: 0; } }
+.spinner { width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #ff4d6d; border-radius: 50%; animation: spin 1s linear infinite; margin: 20px auto; }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
